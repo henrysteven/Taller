@@ -62,7 +62,7 @@ public class Employee {   //remuneracion mensual unificada
 
     //calcula el bono de fin de aÃ±o
     public float CalculateYearBonus() {
-        float salario = 0;
+        float salario = 0.0f;
         // Si la moneda es USD, se considera todo el salario,
         // caso contrario se resta 5% por cambio de moneda
         if (currency == "USD") {
