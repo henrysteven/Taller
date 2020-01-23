@@ -93,6 +93,7 @@ public class EmployeeTest {
     /**
      * Test of CalculateYearBonus method, of class Employee.
      * Calculo de bonus anual para empleado tipo Worker
+     * Con moneda de Euros
      */
     @Test
     public void testCalculateYearBonus_Worker_EUR() {
@@ -106,6 +107,7 @@ public class EmployeeTest {
     /**
      * Test of CalculateYearBonus method, of class Employee.
      * Calculo del bonus anual en con empleado Manager
+     * Con moneda de Euros
      */
     @Test
     public void testCalculateYearBonus_Manager_EUR() {
@@ -119,11 +121,49 @@ public class EmployeeTest {
     /**
      * Test of CalculateYearBonus method, of class Employee.
      * Calculo del bonus anual en con empleado Manager
+     * Con moneda de Euros
      */
     @Test
     public void testCalculateYearBonus_Supervisor_EUR() {
         System.out.println("CalculateYearBonus");
         Employee instance = new Employee(400.0f,"EUR", 0.0f, EmployeeType.Supervisor);
+        float expResult = 573.0f;
+        float result = instance.CalculateYearBonus();
+        assertEquals(expResult, result, 0.1);
+    }
+    
+    @Test
+    public void testCalculateYearBonus_Worker_EUR_bonusPercentage() {
+        System.out.println("CalculateYearBonus");
+        Employee instance = new Employee(400.0f,"EUR", 0.2f, EmployeeType.Worker);
+        float expResult = 386.0f;
+        float result = instance.CalculateYearBonus();
+        assertEquals(expResult, result, 0.00);
+    }
+    
+    /**
+     * Test of CalculateYearBonus method, of class Employee.
+     * Calculo del bonus anual en con empleado Manager
+     * Con moneda de Euros
+     */
+    @Test
+    public void testCalculateYearBonus_Manager_EUR_bonusPercentage() {
+        System.out.println("CalculateYearBonus");
+        Employee instance = new Employee(400.0f,"EUR", 0.3f, EmployeeType.Manager);
+        float expResult = 766.0f;
+        float result = instance.CalculateYearBonus();
+        assertEquals(expResult, result, 0.1);
+    }
+    
+    /**
+     * Test of CalculateYearBonus method, of class Employee.
+     * Calculo del bonus anual en con empleado Manager
+     * Con moneda de Euros
+     */
+    @Test
+    public void testCalculateYearBonus_Supervisor_EUR_bonusPercentage() {
+        System.out.println("CalculateYearBonus");
+        Employee instance = new Employee(400.0f,"EUR", 0.40f, EmployeeType.Supervisor);
         float expResult = 573.0f;
         float result = instance.CalculateYearBonus();
         assertEquals(expResult, result, 0.1);
