@@ -37,16 +37,81 @@ public class EmployeeTest {
     public void tearDown() {
     }
 
-    /**
+    /*
      * Test of cs method, of class Employee.
+     * Se comprueba que se esta calculando el salario final del empleado de forma correcta dando un salario normal de 300 dolares , con currrency "USD" y 0.5 de bonus , resultaado esperado:
      */
     @Test
     public void testCs() {
         System.out.println("cs");
-        Employee instance = new Employee(0, "USD", 0, EmployeeType.Worker);
+        Employee instance = new Employee(300.0f, "USD", 0.5f, EmployeeType.Worker);
         float expResult = 64.33F;
         float result = instance.cs();
-        assertEquals(expResult, result, 0.01);
+        assertEquals(expResult, result, 0.1);
+
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /*
+     * Test of cs method, of class Employee.
+     * Se comprueba que se esta calculando el salario final del empleado de forma correcta dando un salario normal de 300 dolares , con currrency diferente de "USD" y 0.5 de bonus , resultaado esperado:
+     */
+    public void testCsBonus() {
+        System.out.println("cs");
+        Employee instance = new Employee(300.0f, "EUR", 0.5f, EmployeeType.Worker);
+        float expResult = 349.5F;
+        float result = instance.cs();
+        assertEquals(expResult, result, 0.1);
+
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /*
+     * Test of cs method, of class Employee.
+     * Se comprueba que se esta calculando el salario final del empleado de forma correcta dando un salario normal de 300 dolares , con currrency diferente de "USD" y 0.5 de bonus , resultaado esperado:
+     */
+
+    public void testCsSinBonus() {
+        System.out.println("cs");
+        Employee instance = new Employee(300.0f, "EUR", 0f, EmployeeType.Worker);
+        float expResult = 364.5F;
+        float result = instance.cs();
+        assertEquals(expResult, result, 0.1);
+
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /*
+     * Test of cs method, of class Employee.
+     * Se comprueba que se esta calculando el salario final del empleado de forma correcta dando un salario normal de 300 dolares , con currrency de "USD" y 15 de bonus , 
+     resultaado esperado para un trabajador de tipo supervisor :
+     */
+    public void testCsBonus_Supervisor() {
+        System.out.println("cs");
+        Employee instance = new Employee(300.0f, "USD", 15f, EmployeeType.Supervisor);
+        float expResult = 369.0F;
+        float result = instance.cs();
+        assertEquals(expResult, result, 0.1);
+
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    /*
+     * Test of cs method, of class Employee.
+     * Se comprueba que se esta calculando el salario final del empleado de forma correcta dando un salario normal de 300 dolares , con currrency de "USD" y 15 de bonus , 
+     resultaado esperado para un trabajador de tipo manager :
+     */
+    public void testCsBonus_Manager() {
+        System.out.println("cs");
+        Employee instance = new Employee(300.0f, "USD", 15f, EmployeeType.Manager);
+        float expResult = 374.5F;
+        float result = instance.cs();
+        assertEquals(expResult, result, 0.1);
+
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -131,8 +196,7 @@ public class EmployeeTest {
 
     /**
      * Test of CalculateYearBonus method, of class Employee. Calculo del bonus
-     * anual en con empleado Worker Con moneda de Euros
-     * Con BonusPercentage
+     * anual en con empleado Worker Con moneda de Euros Con BonusPercentage
      */
     @Test
     public void testCalculateYearBonus_Worker_EUR_bonusPercentage() {
@@ -145,8 +209,7 @@ public class EmployeeTest {
 
     /**
      * Test of CalculateYearBonus method, of class Employee. Calculo del bonus
-     * anual en con empleado Manager Con moneda de Euros
-     * Con BonusPercentage
+     * anual en con empleado Manager Con moneda de Euros Con BonusPercentage
      */
     @Test
     public void testCalculateYearBonus_Manager_EUR_bonusPercentage() {
@@ -159,8 +222,7 @@ public class EmployeeTest {
 
     /**
      * Test of CalculateYearBonus method, of class Employee. Calculo del bonus
-     * anual en con empleado Manager Con moneda de Euros
-     * Con BonusPercentage
+     * anual en con empleado Manager Con moneda de Euros Con BonusPercentage
      */
     @Test
     public void testCalculateYearBonus_Supervisor_EUR_bonusPercentage() {
