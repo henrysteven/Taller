@@ -45,9 +45,9 @@ public class EmployeeTest {
     public void testCs() {
         System.out.println("cs");
         Employee instance = new Employee(300.0f, "USD", 0.5f, EmployeeType.Worker);
-        float expResult = 64.33F;
+        float expResult = 364.33F;
         float result = instance.cs();
-        assertEquals(expResult, result, 0.1);
+        assertEquals(expResult, result, 1);
 
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
